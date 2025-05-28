@@ -11,6 +11,9 @@ jobs:
       - name: Clonar repositorio
         uses: actions/checkout@v4
 
+      - name: Docker login
+        run: docker login -u ${{ secrets.DOCKER_USER }} -p "${{ secrets.DOCKER_PASSWORD }}"
+
       - name: Construir imagen
         run: docker build -t luisferlcc/nodetest:latest .
 
